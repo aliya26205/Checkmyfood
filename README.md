@@ -76,4 +76,21 @@ Works best in secure browsers (e.g., Chrome) with HTTPS or localhost
 This project is licensed under the **MIT License**.  
 You are free to use, modify, and distribute this project with proper credit to the original author.
 
+## ✨ Author
+
+**Aliya Banu**  
+📧 Email: aliya26205@gmail.com  
+🌐 GitHub: [github.com/aliya26205](https://github.com/aliya26205)  
+🔗 LinkedIn: [linkedin.com/in/aliya-banu26](https://www.linkedin.com/in/aliya-banu26/)
+
+## 👩‍💻 Project Contributors
+
+- **Aliya Banu**  
+  [GitHub](https://github.com/aliya26205) • [LinkedIn](https://www.linkedin.com/in/aliya-banu26/)
+
+- **Amna Munawar Ali**  
+[LinkedIn](https://www.linkedin.com/in/amna-munawar-ali-7a9292317/)
+
+- **Vinisha Marina Dsouza**  
+[LinkedIn](https://www.linkedin.com/in/vinisha-marina-dsouza-2b6683309/)
 
