@@ -71,6 +71,9 @@ CheckMyFood is built to raise awareness about what we consume. It simplifies foo
 
 Works best in secure browsers (e.g., Chrome) with HTTPS or localhost
 
-📄 License
-This project is licensed under the MIT License
+## 📄 License
+
+This project is licensed under the **MIT License**.  
+You are free to use, modify, and distribute this project with proper credit to the original author.
+
 
