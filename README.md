@@ -27,7 +27,8 @@ CheckMyFood is built to raise awareness about what we consume. It simplifies foo
 
 ## 🎥 How It Works
 
-[▶️ Click to Watch Demo](https://user-images.githubusercontent.com/.../how-it-works.mp4)
+📽️ A quick demo video is available in the project folder.  
+📂 Navigate to: `media/How it works.mp4` to see how the application functions.
 
 
 ---
