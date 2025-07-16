@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CheckMyFood</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4; /* Overall background color */
+        }
+        header {
+            background-color:#ffc107;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+        }
+        h2 {
+            margin: 0;
+            flex: 1; /* Take up space on the left */
+        }
+        nav {
+            flex: 2; /* Take up space in the center */
+            display: flex;
+            justify-content: center; /* Center navigation items */
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: rgb(255, 255, 255);
+            text-decoration: none;
+        }
+        .checkmyfood-section {
+            background-color: rgb(35, 35, 35); /* Yellow background */
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .checkmyfood-section h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #fffdfd; /* Black text */
+        }
+        .checkmyfood-section p {
+            font-size: 18px;
+            width: 70%;
+            margin: 0 auto;
+            line-height: 1.6;
+            color: #fffdfd; /* Black text */
+        }
+        .about-us-section {
+            background: rgb(35, 35, 35); /* Yellow background */
+            padding: 100px 0;
+            color: #fffdfd;
+            text-align: center;
+        }
+        .about-us-section h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        .about-us-section p {
+            font-size: 20px;
+            width: 70%;
+            margin: 0 auto;
+        }
+        .intro-section {
+            background: rgb(35, 35, 35); /* Yellow background */
+            padding: 50px 20px;
+            text-align: center;
+            color: #fffdfd;
+        }
+        .section-we {
+            background: rgb(35, 35, 35); /* Yellow background */
+            padding: 50px 20px;
+            text-align: center;
+            color: #fffdfd;
+            font-size:20px;
+        }
+        .intro-section h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        .services {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 30px;
+        }
+        .service-item {
+            background-color: rgba(255, 255, 255, 0.1); /* Slightly transparent white */
+            padding: 20px;
+            width: 30%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            color: #fffdfd;
+            text-align: center;
+            font: size 100px;
+        }
+        .service-item img {
+            max-width: 100%; /* Ensure images are responsive */
+            height: auto; /* Maintain aspect ratio */
+            margin-bottom: 15px; /* Space below images */
+        }
+
+        .team-section {
+    background: rgb(35, 35, 35); 
+    font-size: x-large;/* Yellow background */
+    padding: 50px 20px;
+    text-align: center;
+    color: #fcf8f8;
+}
+
+.team-members {
+    display: flex;
+    justify-content: space-around;
+    align-items: center; /* Ensure all items are vertically aligned */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    gap: 10px; /* Add some spacing between the team members */
+}
+
+.team-member {
+    padding: 20px;
+    width: 30%;
+    text-align: center;
+    color: #0b0b0b;
+}
+
+.team-member img {
+    margin-bottom: 15px;
+    max-width: 100%; /* Ensure images are responsive */
+}
+
+        .image-section {
+            
+            padding: 50px 20px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .names{
+            color: rgb(244, 244, 242);
+            font-size: 20px;
+        }
+        .image-section img {
+            max-width: 45%;
+           
+            
+        }
+        footer {
+            background-color: #000000; /* Black background */
+            color: rgb(255, 253, 253);
+            padding: 30px 20px;
+            text-align: center;
+        }
+        footer a {
+            color: rgb(255, 255, 255);
+            text-decoration: none;
+        }
+        .nav-link {
+            color: #fff;
+            text-decoration: none;
+            margin-right: 20px;
+        }
+
+        .nav-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>CheckMyFood</h1>
+        <nav>
+            <a href="index.html" class="nav-link">HOME</a>
+            <a href="search.html" class="nav-link">SCAN ME</a>
+            <a href="about.html" class="nav-link">ABOUT</a>
+            <a href="#" class="nav-link"></a>
+        </nav>
+        <div class="social-icons">
+            <i class="fa-solid fa-user"></i>
+            <i class="social-icon fas fa-user"></i>
+            <i class="social-icon fas fa-shopping-cart"></i>
+            <i class="social-icon fas fa-search"></i>
+        </div>
+        
+    </header>
+    <section class="about-us-section">
+        <h1><i>About Us</i></h1>
+        <p>
+            <i>CheckMyFood is a revolutionary website that<br> lets users scan food barcodes to check the safety of products.</i> 
+        </p><br><br><br>
+        <img src="f1.jpeg" width="100%" height="300">
+    </section>
+    <section class="intro-section">
+        <h2>Discover the Power of Barcode Scanning for Food Safety</h2>
+        <div class="services">
+            <div class="service-item">
+                <h3><b><i>Instant Safety Checks</i></b></h3>
+                <img src="f2.jpeg" alt="Instant Safety Checks Image">
+                <p>Quickly scan barcodes to get instant safety information about food products, including allergens and nutritional content.</p>
+            </div>
+            <div class="service-item">
+                <h3><b><i>Comprehensive Ingredient Analysis</i></b></h3>
+                <img src="f3.jpeg" alt="Comprehensive Ingredient Analysis Image">
+                <p>Our system analyzes ingredients for potential health risks, ensuring you make informed decisions about your food.</p>
+            </div>
+            <div class="service-item">
+                <h3><b><i>Easy-to-Use Interface</i></b></h3>
+                <img src="f4.jpeg" alt="Easy-to-Use Interface Image">
+                <p>Enjoy a user-friendly platform that provides accurate results with just a few clicks or taps.</p>
+            </div>
+        </div>
+    </section>
+    <section class="section-we">
+
+        <h1><i>Empowering You to Make Smarter Food Choices<br></i></h1>
+
+        <p>
+            <img src="f5.jpeg"
+                 align="left" style="margin-right: 15px;" width="20%">
+            We believe that everyone deserves to know what's in their food and whether it's safe to eat.<br> 
+            But, with the vast array of products on the market, it can be overwhelming to navigate the complex world of food labels 
+            and ingredients. That's why we created CheckMyFood - to give consumers the power to make informed choices about the food they eat.
+        </p><br>
+        
+
+        <p><img src="f6.jpeg"
+            align="left" style="margin-right: 15px;" width="20%">
+            <br><h2><i>How it Works</i></h2><br>
+            Our website uses advanced barcode scanning technology to quickly and accurately identify food products.
+             We then retrieve product data from Open Food Facts, a comprehensive and trusted database of food products. 
+             Our proprietary algorithm analyzes the ingredients, allergens, and nutritional
+             content of each product to calculate a safety percentage. This percentage gives users a clear and concise indication of the product's safety.
+
+        </p><br><br><br><br><br>
+    </section>
+
+    <section class="team-section">
+        <h1><i>Team Members</i></h1>
+        <div class="team-members">
+            <div class="team-member">
+                <img src="aliya.jpeg" alt="CEO" width="60%">
+                <h3 class="names">ALIYA BANU</h3>
+            </div>
+            <div class="team-member">
+                <img src="amna.jpeg" alt="Head Manager" width="58%">
+                <h3 class="names">AMNA MUNAWAR ALI</h3>
+            </div>
+            <div class="team-member">
+                <img src="vini.jpeg" alt="Branch Manager" width="50%">
+                <h3 class="names">VINISHA MARINA DSOUZA</h3>
+            </div>
+        </div>
+    </section>
+    
+
+    <footer class="footer">
+        <p>Created by Aliya Amna Vini</p>
+    </footer>
+</body>
+</html>
+
+

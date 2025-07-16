@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check My Food</title>
+    <style>
+        body {
+            background-color: #292929;
+            color: #fff;
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color:#ffc107;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.2em;
+            line-height: 1.5;
+        }
+
+        .btn {
+            background-color: #ffc107;
+            color: #222;
+            padding: 20px 30px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .image-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 40px;
+        }
+
+        .burger {
+            width: 300px;
+        }
+
+        .fries {
+            width: 300px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .nav-link {
+            color: #fff;
+            text-decoration: none;
+            margin-right: 20px;
+        }
+
+        .nav-link:hover {
+            text-decoration: underline;
+        }
+
+        .social-icons {
+            display: flex;
+            align-items: center;
+        }
+
+        .social-icon {
+            margin-right: 10px;
+            color: #fff;
+            font-size: 1.5em;
+        }
+
+        .social-icon:hover {
+            color: #ffc107;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>CheckMyFood</h1>
+        <nav>
+            <a href="index.html" class="nav-link">HOME</a>
+            <a href="search.html" class="nav-link">SCAN ME</a>
+            <a href="about.html" class="nav-link">ABOUT</a>
+            <a href="#" class="nav-link"></a>
+        </nav>
+        <div class="social-icons">
+            <i class="fa-solid fa-user"></i>
+            <i class="social-icon fas fa-user"></i>
+            <i class="social-icon fas fa-shopping-cart"></i>
+            <i class="social-icon fas fa-search"></i>
+        </div>
+        <button class="btn" onclick="window.location.href='search.html'">Scan Me</button>
+    </header>
+
+    <div class="container">
+        <h1>Check Your Food Before You Eat</h1>
+        <p>The CheckMyFood is a website that lets users scan food barcodes to check the safety of products. It retrieves product data from Open Food Facts
+             and calculates a safety percentage based on ingredients, allergens, and nutritional content.</p>
+        <button class="btn" onclick="window.location.href='search.html'">Scan Me</button>
+
+        <div class="image-container">
+            <img src="p1.jpg" alt="Burger" class="burger">
+            <img src="p2.jpg" alt="Fries" class="fries">
+            <img src="p3.jpg" alt="Fries" class="fries">
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>Created by Aliya Amna Vini</p>
+    </footer>
+
+    <script src="https://kit.fontawesome.com/your-font-awesome-kit-id.js" crossorigin="anonymous">
+        
+    </script>
+</body>
+</html>

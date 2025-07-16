@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barcode Result</title>
+    <style>
+        body {
+            background-color: #292929;
+            color: #fff;
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+       header {
+            background-color:#ffc107;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 70px;;
+        }
+
+        .container {
+            
+            background-color: #484747;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 1000px;
+            margin: 0 auto;
+            color: #fff;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+        }
+
+        
+        #nutritional-info {
+            margin-top: 20px;
+        }
+
+        .info {
+            margin: 5px 0;
+        }
+        .nav-link {
+            color: #fff;
+            text-decoration: none;
+            margin-right: 20px;
+        }
+
+        .nav-link:hover {
+            text-decoration: underline;
+        }
+        .name{
+            color: #ffc107;
+            font-size: large;
+        }
+        .btn {
+            background-color: #ffc107;
+            color: #222;
+            padding: 20px 30px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+            display: flex; justify-content: center;flex-direction: column;align-items: center;
+        }
+        .gauge {
+  width: 100%;
+  max-width: 250px;
+  font-family: "Roboto", sans-serif;
+  font-size: 32px;
+  color: #004033;
+  align-items: center;
+}
+
+.gauge__body {
+  width: 100%;
+  height: 0;
+  padding-bottom: 50%;
+  background:red;
+  position: relative;
+  border-top-left-radius: 100% 200%;
+  border-top-right-radius: 100% 200%;
+  overflow: hidden;
+}
+
+.gauge__fill {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: inherit;
+  height: 100%;
+  background: #66f104;
+  transform-origin: center top;
+  transform: rotate(0.25turn);
+  transition: transform 0.2s ease-out;
+}
+
+.gauge__cover {
+  width: 75%;
+  height: 150%;
+  background: #ffffff;
+  border-radius: 50%;
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translateX(-50%);
+
+  /* Text */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 25%;
+  box-sizing: border-box;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>CheckMyFood</h1>
+        <nav>
+            <a href="index.html" class="nav-link">HOME</a>
+            <a href="search.html" class="nav-link">SCAN ME</a>
+            <a href="about.html" class="nav-link">ABOUT</a>
+            <a href="#" class="nav-link"></a>
+        </nav>
+        <div class="social-icons">
+            <i class="fa-solid fa-user"></i>
+            <i class="social-icon fas fa-user"></i>
+            <i class="social-icon fas fa-shopping-cart"></i>
+            <i class="social-icon fas fa-search"></i>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div style="text-align: center";><h1>Barcode Result</h1></div>
+        <div style="display: flex; flex-direction: row; justify-content: space-evenly;">
+        <div id="proimg"  ></div>
+        <div id="product-info"></div>
+        </div>
+        <div id="result"></div>
+        <div style="text-align: center";><h1>Safety Percentage:</h1><br>
+            <p>How Safe is it to use the product
+                <br> Percentage: <span id="safety-percent"></span></p></div>
+        <div style="display: flex; justify-content: center;flex-direction: column;align-items: center;">
+        <div class="gauge" >
+            <div class="gauge__body">
+              <div class="gauge__fill"></div>
+              <div class="gauge__cover"></div>
+            </div>
+          </div>
+        </div>
+        <button class="btn" onclick="window.location.href='index.html'">HOME</button>
+    </div>
+    
+    <footer class="footer">
+        <p>Created by Aliya Amna Vini</p>
+    </footer>
+    <script>
+        // Get the barcode value from the URL parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const barcode = urlParams.get('barcode');
+
+        // Call Open Food Facts API
+        fetchProductData(barcode);
+
+        // Function to fetch product data from Open Food Facts API
+        function fetchProductData(barcode) {
+            const url = `https://world.openfoodfacts.org/api/v0/product/${barcode}.json`;
+
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === 1) {
+                        // Product found
+                        const product = data.product;
+                        displayProductInfo(product);
+                        const safetyPercentage = calculateSafetyPercentage(product);
+                        updateMeter(safetyPercentage);
+                        const gaugeValue = convertPercentageToValue(safetyPercentage);
+                        setGaugeValue(gaugeElement, gaugeValue);
+                    } else {
+                        // Product not found
+                        document.getElementById("product-info").innerText = 'Product not found.';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching product data:', error);
+                    document.getElementById("product-info").innerText =
+                    document.getElementById("product-info").innerText = 'Error retrieving product information.';
+                });
+        }
+
+        // Function to display product information with fallbacks for missing data
+        function displayProductInfo(product) {
+            const productInfo = `
+                <h2>${product.product_name || 'Product Name Not Available'}</h2>
+                <p><strong class="name">Brand:</strong> ${product.brands || 'Brand Not Available'}</p>
+                <p><strong class="name">Allergens:</strong> ${product.allergens || 'No allergens information available'}</p>
+                <p><strong class="name">Additives:</strong> ${product.additives_tags ? product.additives_tags.join(', ') : 'No additives information available'}</p>
+                <p><strong class="name">Nutri-Score:</strong> ${product.nutriscore_grade ? product.nutriscore_grade.toUpperCase() : 'No Nutri-Score available'}</p>
+                <p><strong class="name">Nutritional Information:</strong></p>
+                <ul type="circle">
+                    <li>Calories: ${product.nutriments.energy_kcal || 'N/A'} kcal</li>
+                    <li>Fats: ${product.nutriments.fat || 'N/A'} g</li>
+                    <li>Sugars: ${product.nutriments.sugars || 'N/A'} g</li>
+                    <li>Proteins: ${product.nutriments.proteins || 'N/A'} g</li>
+                    <li>Carbohydrates: ${product.nutriments.carbohydrates || 'N/A'} g</li>
+                    <li>Salt: ${product.nutriments.salt || 'N/A'} g</li>
+                </ul>
+               
+            `;
+            const proimg=` <img src="${product.image_url || 'default-image.png'}" alt="${product.product_name || 'Product Image Not Available'}" style="max-width: 200px;">`;
+           document.getElementById("proimg").innerHTML=proimg;
+            document.getElementById("product-info").innerHTML = productInfo;
+        }
+
+        function calculateSafetyPercentage(product) {
+            let totalScore = 100;
+
+            // Allergen Impact
+            if (product.allergens && product.allergens.length > 0) {
+                totalScore -= 30; // Reduce safety by 30% if allergens are present
+            }
+
+            // Additives Impact
+            if (product.additives_tags && product.additives_tags.length > 0) {
+                totalScore -= 20; // Reduce safety by 20% if additives are present
+            }
+
+            // Nutritional Impact
+            const nutriments = product.nutriments || {};
+            const { energy_kcal, fat, sugars, proteins, carbohydrates, salt } = nutriments;
+
+            if (energy_kcal > 200) totalScore -= 10; // High calories
+            if (fat > 10) totalScore -= 10; // High fats
+            if (sugars > 15) totalScore -= 10; // High sugar
+            if (proteins < 5) totalScore -= 10; // Low proteins
+            if (carbohydrates > 50) totalScore -= 10; // High carbohydrates
+            if (salt > 2) totalScore -= 10; // High salt (adjust threshold as needed)
+
+            return totalScore;
+        }
+        
+        const gaugeElement = document.querySelector(".gauge");
+
+function setGaugeValue(gauge, value) {
+  if (value < 0 || value > 1) {
+    return;
+  }
+
+  gauge.querySelector(".gauge__fill").style.transform = `rotate(${
+    value / 2
+  }turn)`;
+  gauge.querySelector(".gauge__cover").textContent = `${Math.round(
+    value * 100
+  )}%`;
+}
+
+// Function to convert percentage to a value between 0 and 1
+function convertPercentageToValue(percentage) {
+  return percentage / 100;
+}
+
+
+
+        // Function to update the circular meter with the safety percentage
+        function updateMeter(percentage) {
+    const safetyPercentElement = document.getElementById('safety-percent');
+    safetyPercentElement.textContent = `${percentage}%`;
+
+}
+       
+
+    </script>
+</body>
+</html>
